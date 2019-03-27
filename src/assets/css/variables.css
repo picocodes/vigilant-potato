@@ -1,0 +1,12 @@
+@custom-media --small (min-width: 30em);
+@custom-media --med (min-width: 48em);
+@custom-media --large (min-width: 64em);
+:root {
+    --color-dark: gray(10);
+    --color-medium: gray(40);
+    --color-light: gray(90);
+    --brand: #03a9f4;
+    --brand-light: #b3e5fc;
+    --brand-dark: #01579b;
+    --brand-variable: #700f0f;
+}

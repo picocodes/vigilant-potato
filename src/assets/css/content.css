@@ -1,0 +1,158 @@
+/*Website header*/
+
+.site-header {
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    border-bottom: 2px solid var(--brand);
+    background: rgba(255, 255, 255, 0.98);
+    & a {
+        color: var(--color-dark) !important;
+    }
+    & .container {
+        display: flex;
+        position: relative;
+    }
+    & svg {
+        fill: var(--color-dark) !important;
+    }
+}
+
+.header-close {
+    color: #000;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #fff;
+    font-weight: 700;
+    font-size: 1.3em;
+    cursor: pointer;
+}
+
+.logo {
+    flex: 8;
+    font-size: 30px;
+}
+
+.navbar-toggle,
+.search-toggle {
+    flex: 1;
+    cursor: pointer;
+    padding-top: 10px;
+}
+
+.site-header nav {
+    height: 100%;
+    width: 0;
+    max-width: 400px;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    background-color: var(--color-dark);
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.6s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    & a {
+        color: #fff !important;
+    }
+}
+
+.navbar-toggled .site-header nav {
+    width: 100%;
+}
+
+.header-search-input {
+    position: absolute;
+    width: 100%;
+    max-width: 600px;
+    z-index: 20;
+    right: -120%;
+    top: 10px;
+    transition: 0.6s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.search-toggled .header-search-input {
+    right: 0;
+}
+
+@media(--med) {
+    .navbar-toggle {
+        display: none;
+    }
+    .site-header nav {
+        width: 100%;
+        max-width: 100%;
+        z-index: 10;
+        position: relative;
+        background-color: transparent;
+        overflow: hidden;
+        padding-top: 5px;
+        & a {
+            color: var(--color-dark) !important;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+    }
+    .header-close {
+        display: none;
+    }
+    .logo {
+        flex: 2;
+    }
+    .site-header nav {
+        flex: 7;
+    }
+}
+
+
+/*Layouts*/
+
+main,
+.container {
+    margin: 0 auto;
+    max-width: 1000px;
+    width: 90%;
+}
+
+.grid,
+section {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+article,
+aside,
+.col {
+    flex-basis: 100%;
+}
+
+@media(--med) {
+    .col {
+        flex: 1;
+    }
+    aside {
+        flex: 2.5;
+    }
+    article {
+        flex: 7.5;
+        margin-right: 1em;
+    }
+}
+
+
+/*Website footer*/
+
+.site-footer {
+    background: var(--color-dark);
+    color: #fff;
+    text-align: center;
+    margin-top: 1em;
+    & .container {
+        padding: 1em;
+    }
+}

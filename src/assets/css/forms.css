@@ -1,0 +1,124 @@
+form * {
+    transition: all 0.5s cubic-bezier(0.53, 0.01, 0.35, 1.5);
+}
+
+input,
+textarea,
+button {
+    color: var(--color-dark);
+    border: 1px solid var(--color-light);
+    font-family: system-ui;
+    position: relative;
+    padding: 10px 15px;
+    &:focus {
+        border-color: var(--brand);
+    }
+}
+
+.input-container {
+    position: relative;
+    padding: 10px 0;
+}
+
+.input-container:first-of-type {
+    padding-top: 0;
+}
+
+.input-container:last-of-type {
+    padding-bottom: 0;
+}
+
+.input-container label {
+    transform-origin: left center;
+    padding: 10px 15px;
+    display: block;
+    position: absolute;
+    margin-top: -40px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.input-container input {
+    appearance: none;
+    background-color: transparent;
+    line-height: 0;
+    width: 100%;
+    display: block;
+    padding: 10px 15px;
+    border-radius: 5px;
+    position: relative;
+    z-index: 1;
+}
+
+.input-container input:focus {
+    outline: none;
+    margin-top: 30px;
+}
+
+.input-container input:valid {
+    margin-top: 30px;
+}
+
+.input-container input:focus~label {
+    transform: translate(0, -35px);
+}
+
+.input-container input:valid~label {
+    transform: translate(5px, -35px) scale(0.6);
+}
+
+input[type="search"] {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAClklEQVRYhe2WPWgUQRTHf+/2FDfhbo80i7cDESGkSBFIERALUwQrGxEklaVGgo2dTXJqZycWxiaCYClcEyGgkiJFyogJKTQfcLvbBEKyFyEYzrHIbLKeuY/kcoiYPywz+/bx3m/nzb5ZONP/Lmnk0NfXd35ra2sEuAUMAC4QAata62lgKgzDUlsA8vn8sIi8Ai7XcdsVkWe+7z8BKqcGoJS6q7V+CaQS5kVgHcgAg4CdePY+l8vdXFpa+tEygHnzmUTyTyJyz/f9bwmfDhF5CIwD54x5MgiC+y0BmJovY5Zda10Iw/Ap8POoAJ7n9QOzQM6YrgRBMN8sQKraYDZcXPOP9ZIDBEHwWUQeJEyPmk1+JAD7ux0AERmtlzyW7/tvgTlze9113c5WAAbMuJiseQNpoGjmFyzL6m0FwDXjerNBAERk7SBoKuXW820EEJkxcxwArXU2nlcqlZ1WAFbNOJjP5zuOwTAUT9Lp9MqJAUx7BbDNd95QSqke4La5XS6VSuGJAYApYNfMx813Xk+W1vo1h13xRbPJAaxqQ7lcjhzHOQ9cM89HHMcJoij6Uu2rlOrJZDJF4KoxLdi2Pba5udn0mVDrLLA8zysCNxK2OaAoImtmww2xv+zJ82BSa/0uDMMPrQLELfk5MNpEnAVgPvYVkce+7xeaAfijBLE2NjYq5XJ5OpvNzrDfGy4B6Sq3ZWDCtu2xvb297yJyx9iHHMeRKIpmGwE0/CGJ5bpup2VZvalUyq1UKjvpdHqlercrpQpa64mD4MdYiVOTUqrgeZ6OL6VUXYCaJTipoiiadRxHOGxMdctx6gDHhWgLQA2I/q6urjfb29u/nRNtA6iC6NdaD/u+/7Wd+Wqqu7v74l9JfKZ/Qr8AqAjolW70tCUAAAAASUVORK5CYII=');
+    background-position: 98% 5px;
+    background-repeat: no-repeat;
+    padding-right: 40px;
+}
+
+input[type="search"]:focus {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAChklEQVRYhe2WTUgUYRjHf8/MzpL7Yd2kayAeOggeJOnSQTp1CWFXoXNp0MVbF93q5i06ZBcDIXAXBUEMggoDDx4NhL3kBwh1K9TZxXTnfTrMrF8tu7O7bgX5v8z7vjzz//94P+YduND/LqlZkdOobQqDiA6A9AAdwC6wociiMTLFUGy7JQCRrNuvqq8QuValbF9UJ0pW4ikp8c4NwM4V7qP6ErDKYwprImyhJIFeoO3EK289id8lJQdNA0Sybr/CuxPhHz3xHpC6/OWoaEFjVrE4KugY4ASIk146OdIcQE6jtnHz5WlXJGPysWdkxFQycGbcbiMsAVcALLX6DgdjK2EBrLMD/oYL1lz4UC0c4HAw8Rl4VO4b8R6HDa8I4O92Xx7ecLXwo7pU/A3IcmBwm2mNNw7gHzUU1k6teTWJqKLzQe+SEy12NQFAh+/JVlgTAFHdLLdN4NEowC5AcNTCy5L2YxjPbQZgI3j2sqCx0ADKrXKzhL3eMIAii0GzzSoWR0O5zO50AikAgTxD8a8NAxgjU8C+b6ZjzozbXdUhp7btRV4TfBWN6Iuw4RUBGIpti+pE0HOMsGRn3Xuo/v7Rmt3ptLX4CfQmgMKqSSSm6gGofBfk1LYpzKPcOVG6rOi8qG5iSXuw5ilO3Qc6KchcKZ143xyADxG11X0OMlzLRGFV0JVyraBPSulkJgxApVPgKyUHXjo5YqnVBywAP8+WCORV9KFJxm8IMncMJOOR7F4ogNo/JGVNa9yJFrsMdIh6bgl7/exuj2T3MoqMH5vXnonwACFVL8S5A9QL0RKAeiBaBlAB4ocXkesMxL+1MrMihJ11vzszhZ4/GnxKc4Wrfy/8Qv+6fgEVG/41R6F2LgAAAABJRU5ErkJggg==');
+    border-color: var(--brand);
+}
+
+.button,
+a.button,
+button,
+input[type=button],
+input[type=submit],
+input[type=reset] {
+    background-color: var(--brand);
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.25), 0 2px 10px 0 rgba(0, 0, 0, 0.25);
+    font-size: 1em;
+    &:hover {
+        box-shadow: 0 6px 15px 0 rgba(0, 0, 0, 0.16), 0 6px 30px 0 rgba(0, 0, 0, 0.29);
+        color: white;
+    }
+}
+
+.button-secondary,
+a.button-secondary,
+input[type=reset] {
+    background-color: var(--color-light);
+    color: var(--brand);
+    &:hover {
+        color: var(--brand-dark) !important;
+        text-decoration: none !important;
+    }
+}
+
+.button-outline,
+a.button-outline {
+    background-color: #fff;
+    border: 3px solid var(--brand);
+    color: var(--brand);
+    &:hover {
+        color: var(--brand-dark)!important;
+        text-decoration: none !important;
+        border-color: var(--brand-dark);
+    }
+}

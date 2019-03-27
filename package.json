@@ -1,0 +1,64 @@
+{
+    "name": "cameraxl",
+    "version": "1.0.0",
+    "description": "The official node js web app",
+    "main": "index.js",
+    "scripts": {
+        "test": "test",
+        "start": "node index.js",
+        "clean": "RD /S /Q dist && MD dist",
+        "build": "npm run clean && parcel build src/templates/*.html",
+        "watch": "parcel src/templates/*.html"
+    },
+    "author": "picocodes",
+    "license": "ISC",
+    "dependencies": {
+        "handlebars": "^4.1.1",
+        "koa-bodyparser": "^4.2.1",
+        "koa-logger": "^3.2.0",
+        "koa-response-time": "^2.1.0",
+        "koa-router": "^7.4.0",
+        "koa-send": "^5.0.0"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.4.0",
+        "@babel/preset-env": "^7.4.2",
+        "autoprefixer": "^9.5.0",
+        "css-mqpacker": "^7.0.0",
+        "cssnano": "^4.1.10",
+        "postcss-import": "^12.0.1",
+        "postcss-normalize": "^7.0.1",
+        "postcss-parcel-import": "0.0.2",
+        "postcss-preset-env": "^6.6.0",
+        "postcss-utilities": "^0.8.0"
+    },
+    "browserslist": [
+        "last 2 versions",
+        "> 0.5%",
+        "IE 10"
+    ],
+    "postcss": {
+        "plugins": {
+            "postcss-parcel-import": {},
+            "postcss-normalize": {},
+            "postcss-preset-env": {
+                "stage": 0
+            },
+            "postcss-custom-properties": {},
+            "postcss-utilities": {
+                "centerMethod": "flexbox"
+            },
+            "postcss-calc": {},
+            "css-mqpacker": {},
+            "autoprefixer": {},
+            "cssnano": {}
+        }
+    },
+    "babel": {
+        "presets": [
+            [
+                "@babel/preset-env"
+            ]
+        ]
+    }
+}

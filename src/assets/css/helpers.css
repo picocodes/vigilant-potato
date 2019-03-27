@@ -1,0 +1,70 @@
+.clearfix {
+    @util clearfix;
+}
+
+.left {
+    float: left !important;
+}
+
+.right {
+    float: right !important;
+}
+
+.rounded-top {
+    @util border-top-radius(4px);
+}
+
+.rounded-bottom {
+    @util border-bottom-radius(4px);
+}
+
+.rounded {
+    border-radius: 4px;
+}
+
+.circle {
+    border-radius: 50%;
+}
+
+.center-children {
+    @util center;
+}
+
+.margin-auto {
+    @util center-block;
+}
+
+.screen-reader-text {
+    @util hide-visually;
+}
+
+.divider {
+    @util hr(#000, 20px, dotted, 3px);
+}
+
+.shadow {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.shadow2 {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.hoverable {
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+    &:hover {
+        box-shadow: 0 10px 6px -6px var(--color-light);
+    }
+}
+
+.light {
+    font-weight: 300;
+}
+
+.thin {
+    font-weight: 200;
+}
+
+.big {
+    font-size: 1.2em;
+}
