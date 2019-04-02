@@ -100,6 +100,17 @@ input[type=reset] {
     }
 }
 
+.button.action,
+a.button.action,
+button.action,
+input[type=button].action,
+input[type=submit].action,
+input[type=reset].action {
+    padding: 0 32px;
+    height: 36px;
+    line-height: 36px;
+}
+
 .button-secondary,
 a.button-secondary,
 input[type=reset] {

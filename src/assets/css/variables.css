@@ -6,7 +6,17 @@
     --color-medium: gray(40);
     --color-light: gray(90);
     --brand: #03a9f4;
-    --brand-light: #b3e5fc;
+    --brand-light: #e1f5fe;
     --brand-dark: #01579b;
     --brand-variable: #700f0f;
+    --success-very-light: #e8f5e9;
+    --success-light: #a5d6a7;
+    --success: #66bb6a;
+    --success-dark: #388e3c;
+    --success-very-dark: #2e7d32;
+    --error-very-light: #ffebee;
+    --error-light: #ffcdd2;
+    --error: #f44336;
+    --error-dark: #e53935;
+    --error-very-dark: #c62828;
 }

@@ -3,6 +3,7 @@ const Router = require('koa-router');
 const send = require('koa-send');
 const handlebars = require('handlebars');
 const fs = require('fs');
+const loki = require('lokijs');
 
 //Load the router
 const router = new Router(); //router.get|put|post|patch|delete|del
@@ -18,42 +19,31 @@ fs.readFile('dist/post.html', 'utf8',
         }
     });
 
-var posts = {
-    'a': {
+//Prepare the database
+var db = new loki('example.db');
+var posts = db.addCollection('posts', {
+    unique: ['slug']
+});
+
+posts.insert([{
+        'slug': 'a',
         'title': 'Post A Title',
-        'content': 'Post A Content',
+        'content': '<p>This is just example content. More advanced data will be loaded soon so stay tuned.</p>',
         'author': 'Post A Author',
         'tags': 'Post A Tags',
         'date': 'Post A Date',
         'modified': 'Post A Modified',
     },
-    'b': {
-        'title': 'Post B Title',
-        'content': 'Post B Content',
-        'author': 'Post B Author',
-        'tags': 'Post B Tags',
-        'date': 'Post B Date',
-        'modified': 'Post B Modified',
+    {
+        'slug': 'b',
+        'title': 'Post b Title',
+        'content': '<p>A complete list (and brief description) of every tag in the HTML, including the latest ... Click through to view details, code samples and more for each tag. Be sure</p>',
+        'author': 'Post b Author',
+        'tags': 'Post b Tags',
+        'date': 'Post b Date',
+        'modified': 'Post b Modified',
     },
-    'c': {
-        'title': 'Post C Title',
-        'content': 'Post C Content',
-        'author': 'Post C Author',
-        'tags': 'Post C Tags',
-        'date': 'Post c Date',
-        'modified': 'Post C Modified',
-    },
-    'd': {
-        'title': 'Post D Title',
-        'content': 'Post D Content',
-        'author': 'Post D Author',
-        'tags': 'Post D Tags',
-        'date': 'Post D Date',
-        'modified': 'Post D Modified',
-    },
-};
-//Load Templates
-
+]);
 
 //Bundled js and css files
 router.get('/main.(.*)', async ctx => {
@@ -70,15 +60,23 @@ router.get('/favicon.ico', async ctx => await send(ctx, ctx.path, {
     maxAge: 60 * 24 * 1000, //Cache for a day
 }));
 
+//Search results
+router.get('/search', (ctx, next) => {
+
+    ctx.body = ctx.query.q;
+
+});
+
 //Blog post or page
 router.get('/:slug', (ctx, next) => {
 
-    if (undefined == posts[ctx.params.slug.toLowerCase()]) {
+    let post = posts.by("slug", ctx.params.slug.toLowerCase());
+    if (null == post) {
         next();
         return;
     }
-
-    ctx.body = post_template(posts[ctx.params.slug.toLowerCase()]);
+    post.current_year = new Date().getFullYear();
+    ctx.body = post_template(post);
 
 });
 
