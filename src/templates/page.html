@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>{{title}} &mdash; Photome</title>
+    <title>{{title.rendered}} &mdash; Photome</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="../assets/css/main.css">
@@ -47,10 +47,10 @@
         <section class="page">
             <article itemscope itemtype="https://schema.org/CreativeWork">
                 <header class="entry-header">
-                    <h1 class="entry-title" itemprop="headline">{{{title}}}</h1>
+                    <h1 class="entry-title" itemprop="headline">{{{title.rendered}}}</h1>
                 </header>
                 <div class="entry-content">
-                    {{{content}}}
+                    {{{content.rendered}}}
                 </div>
             </article>
         </section>

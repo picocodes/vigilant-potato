@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>{{title}} &mdash; Photome</title>
+    <title>{{title.rendered}} &mdash; Photome</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="../assets/css/main.css">
@@ -47,13 +47,13 @@
         <section>
             <article class="right-border-shadow" itemscope itemtype="https://schema.org/CreativeWork">
                 <header class="entry-header">
-                    <h1 class="entry-title" itemprop="headline">{{{title}}}</h1>
+                    <h1 class="entry-title" itemprop="headline">{{{title.rendered}}}</h1>
                     <div class="entry-meta small color-medium"> By <strong><span class="entry-author" itemprop="author" itemscope itemtype="https://schema.org/Person"><span class="entry-author-name" itemprop="name">{{author}}</span></span></strong> | Last Updated <time class="entry-time" itemprop="datePublished"
                             datetime="{{date}}">{{date}}</time>
                     </div>
                 </header>
                 <div class="entry-content">
-                    {{{content}}}
+                    {{{content.rendered}}}
                 </div>
             </article>
             <aside class="sidebar">
