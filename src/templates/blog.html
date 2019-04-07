@@ -44,15 +44,28 @@
     </header>
 
     <main style="padding-top: 80px;">
-        <section>
-            <article class="right-border-shadow" itemscope itemtype="https://schema.org/CreativeWork">
-                <header class="entry-header">
-                    <h2 class="entry-title" itemprop="headline">Latest posts</h2>
-                </header>
-                <div class="entry-content">
-                    A list of the latest blog posts will appear here in the form of cards.
-                </div>
-            </article>
+        <section class="blog-wrapper">
+            <div class="articles-wrapper">
+
+                {{#if posts.length }}
+
+                <!--We have posts-->
+                <h1 class="page-title">Latest Posts</h1>
+                {{#each posts}}
+                <article class="padded shadow margin-bottom">
+                    <h2 class="entry-title"><a href="http://localhost:3000/{{slug}}" class="color-dark">{{{title.rendered}}}</a></h2>
+                    <div class="entry-content">{{{excerpt.rendered}}}</div>
+                </article>
+                {{/each}}
+
+                <!--No posts-->
+                {{else}}
+                <p class="no-posts">No posts have been published</p>
+
+                <!--End if-->
+                {{/if}}
+
+            </div>
             <aside class="sidebar">
                 <section class="email-widget bg-brand padded-big center-children margin-bottom brand-light">
                     <form>

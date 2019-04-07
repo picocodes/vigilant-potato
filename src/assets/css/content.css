@@ -123,7 +123,8 @@ main,
 }
 
 .grid,
-section {
+.section-wrapper,
+.blog-wrapper {
     display: flex;
     flex-flow: row wrap;
 }
@@ -132,9 +133,10 @@ section {
     display: block;
 }
 
-article,
+.section-wrapper article,
 .sidebar,
-.col {
+.col,
+.articles-wrapper {
     flex-basis: 100%;
     max-width: 100%;
 }
@@ -147,9 +149,11 @@ article,
         flex: 3;
         font-size: 1rem;
     }
-    article {
+    .section-wrapper article,
+    .articles-wrapper {
         flex: 7;
         margin-right: 1em;
+        width: 70%;
     }
     .page {
         width: 70%;
@@ -174,4 +178,23 @@ article,
 
 .entry-content {
     margin: 2em auto;
+}
+
+.entry-title,
+.entry-title a {
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-bottom: 1em;
+}
+
+.entry-title.with-margin {
+    margin: 2em 0;
+}
+
+.page-title {
+    font-size: 1em;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin: 2em 0;
 }
