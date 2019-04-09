@@ -5,6 +5,7 @@ const responseTime = require('koa-response-time');
 const router = require('./routes/index');
 const logger = require('koa-logger');
 const fs = require('fs');
+const config = require('./config.js');
 
 //Initiate the environment
 const app = new Koa();
@@ -51,6 +52,6 @@ app
     .use(router.routes())
     .use(router.allowedMethods());
 
-app.listen(3000, () => {
-    console.log('Server running at http://localhost:3000')
+app.listen(config.port, () => {
+    console.log('Server running at ' + config.homepage)
 })

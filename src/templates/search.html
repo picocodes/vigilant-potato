@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../assets/css/main.css">
 </head>
 
-<body>
+<body class="search-page">
     <header class="site-header">
 
         <div class="container">
@@ -45,28 +45,39 @@
 
     <main style="padding-top: 80px;">
         <section class="page">
-            <article itemscope itemtype="https://schema.org/CreativeWork">
-                <header class="entry-header">
-                    <h1 class="entry-title" itemprop="headline">Search results for {{query}}</h1>
-                </header>
-                <div class="entry-content">
-                    Search results will appear here
-                </div>
-            </article>
+            <h1 class="page-title">Search results for {{query}}</h1>
+            <div class=" entry-content ">
+                {{#if posts.length }}
+
+                <!--We have posts-->
+                {{#each posts}}
+                <article class="padded bottom-border-shadow margin-bottom " data-score="{{score}} ">
+                    <h2 class="entry-title "><a href="http://localhost:3000/{{post.slug}} " class="color-dark ">{{{post.title.rendered}}}</a></h2>
+                    <div class="entry-content ">{{{post.excerpt.rendered}}}</div>
+                </article>
+                {{/each}}
+
+                <!--No posts-->
+                {{else}}
+                <p class="no-posts ">Your search returned no results. Maybe try a different keyword?</p>
+
+                <!--End if-->
+                {{/if}}
+            </div>
         </section>
     </main>
 
-    <footer class="site-footer top-border-shadow">
-        <div class="container color-medium">
+    <footer class="site-footer top-border-shadow ">
+        <div class="container color-medium ">
             <p>Photome.com is a participant in the Amazon Services LLC associates program, an affiliate advertising program designed to provided a means for for sites to earn advertising fees by adversitising and linking to amazon.com. Amazon, the Amazon
                 logo, Amazon Supply, andd the Amazon Supply logo are trademarks of Amazon.com, or its affiliates. As an Amazon associate, we earn affiliate commisions from qualifying purchases.
             </p>
         </div>
-        <div class="bg-dark color-light padded center-children">
-            <p><a href="privacy-policy" class="brand-light">Privacy Policy</a> / Copyright © {{current_year}} Photome.com · All rights reserved.</p>
+        <div class="bg-dark color-light padded center-children ">
+            <p><a href="privacy-policy " class="brand-light ">Privacy Policy</a> / Copyright © {{current_year}} Photome.com · All rights reserved.</p>
         </div>
     </footer>
-    <!---<script src="../assets/js/main.js"></script>-->
+    <!---<script src="../assets/js/main.js "></script>-->
 </body>
 
 </html>

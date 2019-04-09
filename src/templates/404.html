@@ -12,9 +12,9 @@
         }
         
         html {
-            color: #888;
+            color: #424242;
             display: table;
-            font-family: sans-serif;
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
             height: 100%;
             text-align: center;
             width: 100%;
@@ -27,14 +27,33 @@
         }
         
         h1 {
-            color: #555;
-            font-size: 2em;
-            font-weight: 400;
+            color: #616161;
+            font-size: 2.5em;
+            font-weight: 500;
+            margin-bottom: 1rem;
         }
         
         p {
             margin: 0 auto;
-            width: 280px;
+            width: 400px;
+            max-width: 90%;
+        }
+        
+        .search-input {
+            width: 400px;
+            max-width: 80%;
+            border: none;
+            border-bottom: 2px solid #03a9f4;
+            position: relative;
+            outline: none;
+            background-color: rgba(3, 169, 244, .03);
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAClklEQVRYhe2WPWgUQRTHf+/2FDfhbo80i7cDESGkSBFIERALUwQrGxEklaVGgo2dTXJqZycWxiaCYClcEyGgkiJFyogJKTQfcLvbBEKyFyEYzrHIbLKeuY/kcoiYPywz+/bx3m/nzb5ZONP/Lmnk0NfXd35ra2sEuAUMAC4QAata62lgKgzDUlsA8vn8sIi8Ai7XcdsVkWe+7z8BKqcGoJS6q7V+CaQS5kVgHcgAg4CdePY+l8vdXFpa+tEygHnzmUTyTyJyz/f9bwmfDhF5CIwD54x5MgiC+y0BmJovY5Zda10Iw/Ap8POoAJ7n9QOzQM6YrgRBMN8sQKraYDZcXPOP9ZIDBEHwWUQeJEyPmk1+JAD7ux0AERmtlzyW7/tvgTlze9113c5WAAbMuJiseQNpoGjmFyzL6m0FwDXjerNBAERk7SBoKuXW820EEJkxcxwArXU2nlcqlZ1WAFbNOJjP5zuOwTAUT9Lp9MqJAUx7BbDNd95QSqke4La5XS6VSuGJAYApYNfMx813Xk+W1vo1h13xRbPJAaxqQ7lcjhzHOQ9cM89HHMcJoij6Uu2rlOrJZDJF4KoxLdi2Pba5udn0mVDrLLA8zysCNxK2OaAoImtmww2xv+zJ82BSa/0uDMMPrQLELfk5MNpEnAVgPvYVkce+7xeaAfijBLE2NjYq5XJ5OpvNzrDfGy4B6Sq3ZWDCtu2xvb297yJyx9iHHMeRKIpmGwE0/CGJ5bpup2VZvalUyq1UKjvpdHqlercrpQpa64mD4MdYiVOTUqrgeZ6OL6VUXYCaJTipoiiadRxHOGxMdctx6gDHhWgLQA2I/q6urjfb29u/nRNtA6iC6NdaD/u+/7Wd+Wqqu7v74l9JfKZ/Qr8AqAjolW70tCUAAAAASUVORK5CYII=');
+            background-position: 98% 5px;
+            background-repeat: no-repeat;
+            padding: 5px 40px 5px 15px;
+            margin: 32px auto;
+            font-size: 1.3em;
+            font-weight: 500;
         }
         
         @media only screen and (max-width: 280px) {
@@ -52,7 +71,10 @@
 
 <body>
     <h1>Page Not Found</h1>
-    <p>Sorry, but the page you were trying to view does not exist.</p>
+    <p>Sorry, but the page you were trying to view does not exist. Maybe try a search?</p>
+    <form method="get" action="search">
+        <input class="search-input" type="search" name="q" />
+    </form>
 </body>
 
 </html>
